@@ -1,8 +1,8 @@
-import paramiko
+import paramiko, sys
 
 ssh = paramiko.SSHClient()
 ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect('remote_host', username='user', password='password')
+ssh.connect(hostname=sys.argv[1], username=sys.argv[2], password=sys.argv[3])
 
 commands = [
     'echo "Hello, world!"',
